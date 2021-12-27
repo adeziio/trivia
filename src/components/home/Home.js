@@ -136,12 +136,9 @@ export default class Home extends Component {
     }
 
     submitQuiz = () => {
-        console.log("submitted");
         let newScore = 0;
         this.state.data.forEach((item) => {
-            console.log("went here");
             if (item.chosenAnswer === item.correct_answer) {
-                console.log(newScore)
                 newScore += 1;
             }
         })
@@ -154,9 +151,6 @@ export default class Home extends Component {
     render() {
         const { numberOfQuestions, category, difficulty, type, data, activeStep, showResult, score } = this.state;
         const maxSteps = data.length;
-
-
-        console.log(data)
 
         return (
             <div className="main-container">

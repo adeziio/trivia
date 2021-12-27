@@ -230,7 +230,7 @@ export default class Home extends Component {
                 {data.length > 0 ?
                     <div className="quiz-container">
                         <div className="quiz-card">
-                            <Box sx={{ width: 450, height: 400, flexGrow: 1 }}>
+                            <Box sx={{ width: "100%", height: 400, flexGrow: 1 }}>
                                 <div className="quiz-header">
                                     <div><div className="same-line bold">Category: </div><div className="same-line italicized">{data[activeStep].category}</div></div>
                                     <div><div className="same-line bold"> Difficulty Level: </div><div className="same-line italicized">{data[activeStep].difficulty}</div></div>

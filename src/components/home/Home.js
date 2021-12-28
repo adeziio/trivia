@@ -106,7 +106,7 @@ export default class Home extends Component {
             let choices = [...item.incorrect_answers];
             choices.push(item.correct_answer);
             choices.sort((a, b) => 0.5 - Math.random());
-            item.choices = choices;
+            item.choices = this.state.type === "boolean" ? ["True", "False"] : choices;
             newData.push(item);
         })
         this.setState({
@@ -119,6 +119,7 @@ export default class Home extends Component {
         this.state.data.forEach((item) => {
             let newQuestion = item.question.replaceAll("&quot;", "\"");
             newQuestion = newQuestion.replaceAll("&#039;", "'");
+            newQuestion = newQuestion.replaceAll("&eacute;", "é");
             item.question = newQuestion;
             newData.push(item);
         })

@@ -152,6 +152,7 @@ export default class Home extends Component {
     render() {
         const { numberOfQuestions, category, difficulty, type, data, activeStep, showResult, score } = this.state;
         const maxSteps = data.length;
+        console.log(this.state.data)
 
         return (
             <div className="main-container">
@@ -248,16 +249,14 @@ export default class Home extends Component {
                                     <RadioGroup
                                         name="radio-buttons-group"
                                         onChange={this.chosenAnswer}
+                                        value={data[activeStep].chosenAnswer}
                                     >
                                         {data[activeStep].choices ?
                                             data[activeStep].choices.map((choice) =>
-                                                <FormControlLabel value={choice} control={<Radio />} label={choice} />
+                                                <FormControlLabel value={choice} control={<Radio />} label={choice} checked={data[activeStep].chosenAnswer === choice ? true : false} />
                                             ) : null
                                         }
-
-
                                     </RadioGroup>
-
                                 </div>
                             </Box>
                             <MobileStepper

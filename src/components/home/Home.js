@@ -10,11 +10,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
-
 import MobileStepper from '@mui/material/MobileStepper';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -123,6 +121,7 @@ export default class Home extends Component {
             newQuestion = newQuestion.replaceAll("&#039;", "'");
             newQuestion = newQuestion.replaceAll("&eacute;", "é");
             newQuestion = newQuestion.replaceAll("&rsquo;", "'");
+            newQuestion = newQuestion.replaceAll("&amp;", "&");
             item.question = newQuestion;
             newData.push(item);
         })
@@ -157,7 +156,6 @@ export default class Home extends Component {
     render() {
         const { numberOfQuestions, category, difficulty, type, data, activeStep, showResult, score, disabledChoices } = this.state;
         const maxSteps = data.length;
-        console.log(this.state.data)
 
         return (
             <div className="main-container">

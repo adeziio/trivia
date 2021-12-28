@@ -83,7 +83,7 @@ export default class Home extends Component {
 
     generateNewQuiz = () => {
         this.resetQuiz();
-        if (this.state.numberOfQuestions !== '') {
+        if (this.state.numberOfQuestions !== '' && !isNaN(this.state.numberOfQuestions)) {
             let url = `https://opentdb.com/api.php?amount=${this.state.numberOfQuestions}&category=${this.state.category}&difficulty=${this.state.difficulty}&type=${this.state.type}`;
             fetch(url, {
                 "method": "GET",
@@ -228,7 +228,8 @@ export default class Home extends Component {
                         </FormControl>
                         <FormControl fullWidth>
                             <Button variant="contained" onClick={this.generateNewQuiz}>Generate Quiz</Button>
-                            {numberOfQuestions === '' ? <p className="error-msg">Missing Required Field</p> : null}
+                            {numberOfQuestions === '' ? <p className="error-msg">Missing Required Field</p> :
+                                isNaN(this.state.numberOfQuestions) ? <p className="error-msg">Invalid Input</p> : null}
                         </FormControl>
                     </Box>
                 </div>

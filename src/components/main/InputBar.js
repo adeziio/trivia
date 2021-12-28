@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './InputBar.css';
-import CategoryOptions from "../inputOptions/CategoryOptions";
-import DifficultyOptions from "../inputOptions/DifficultyOptions";
-import TypeOptions from "../inputOptions/TypeOptions";
+import CategoryOptions from "../data/CategoryOptions";
+import DifficultyOptions from "../data/DifficultyOptions";
+import TypeOptions from "../data/TypeOptions";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
@@ -74,9 +73,9 @@ export default class InputBar extends Component {
                             onChange={this.handleCategoryChange}
                         >
                             {
-                                CategoryOptions.map((item, index) => {
+                                CategoryOptions.map((item) => {
                                     return (
-                                        <MenuItem key={index} value={item.value}>{item.name}</MenuItem>
+                                        <MenuItem key={`${item.name}${item.value}`} value={item.value}>{item.name}</MenuItem>
                                     )
                                 })
                             }
@@ -92,9 +91,9 @@ export default class InputBar extends Component {
                             onChange={this.handleDifficultyChange}
                         >
                             {
-                                DifficultyOptions.map((item, index) => {
+                                DifficultyOptions.map((item) => {
                                     return (
-                                        <MenuItem key={index} value={item.value}>{item.name}</MenuItem>
+                                        <MenuItem key={`${item.name}${item.value}`} value={item.value}>{item.name}</MenuItem>
                                     )
                                 })
                             }
@@ -110,9 +109,9 @@ export default class InputBar extends Component {
                             onChange={this.handleTypeChange}
                         >
                             {
-                                TypeOptions.map((item, index) => {
+                                TypeOptions.map((item) => {
                                     return (
-                                        <MenuItem key={index} value={item.value}>{item.name}</MenuItem>
+                                        <MenuItem key={`${item.name}${item.value}`} value={item.value}>{item.name}</MenuItem>
                                     )
                                 })
                             }

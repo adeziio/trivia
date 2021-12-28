@@ -9,7 +9,6 @@ export default class Main extends Component {
         super(props);
         this.state = {
             data: [],
-
         }
     };
 
@@ -57,14 +56,6 @@ export default class Main extends Component {
         this.setData(newData);
     };
 
-    cleanUpChar = (str) => {
-        let newStr = str;
-        SpecialCharList.forEach((item) => {
-            newStr = newStr.replaceAll(item.entity, item.char);
-        })
-        return newStr;
-    }
-
     massageQuestion = () => {
         let newData = [];
         this.state.data.forEach((item) => {
@@ -94,6 +85,14 @@ export default class Main extends Component {
         this.setData(newData);
     }
 
+    cleanUpChar = (str) => {
+        let newStr = str;
+        SpecialCharList.forEach((item) => {
+            newStr = newStr.replaceAll(item.entity, item.char);
+        })
+        return newStr;
+    }
+
     render() {
         const { data } = this.state;
 
@@ -103,7 +102,7 @@ export default class Main extends Component {
                     <div className="title">Trivia Quiz</div>
                 </div>
                 <InputBar generateNewQuiz={this.generateNewQuiz} />
-                <QuizContent data={data} resetData={this.resetData} setData={this.setData} />
+                <QuizContent data={data} setData={this.setData} />
             </div >
         )
     }

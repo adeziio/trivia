@@ -20,13 +20,13 @@ export default class InputBar extends Component {
             difficulty: "easy",
             type: "multiple"
         }
-    }
+    };
 
     handleNumberOfQuestionsChange = (event) => {
         this.setState({
             numberOfQuestions: event.target.value
         })
-    }
+    };
 
     handleCategoryChange = (event) => {
         this.setState({
@@ -49,7 +49,7 @@ export default class InputBar extends Component {
     generateNewQuiz = () => {
         const { numberOfQuestions, category, difficulty, type } = this.state;
         this.props.generateNewQuiz(numberOfQuestions, category, difficulty, type);
-    }
+    };
 
     render() {
         const { numberOfQuestions, category, difficulty, type } = this.state;

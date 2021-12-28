@@ -21,7 +21,7 @@ export default class Main extends Component {
             showResult: false,
             disabledChoices: false
         }
-    }
+    };
 
     resetQuiz = () => {
         this.setState({
@@ -31,21 +31,19 @@ export default class Main extends Component {
             showResult: false,
             disabledChoices: false
         })
-    }
-
-
+    };
 
     handleNext = () => {
         this.setState((prevState) => ({
             activeStep: prevState.activeStep + 1
         }))
-    }
+    };
 
     handleBack = () => {
         this.setState((prevState) => ({
             activeStep: prevState.activeStep - 1
         }))
-    }
+    };
 
     generateNewQuiz = (numberOfQuestions, category, difficulty, type) => {
         this.resetQuiz();
@@ -64,7 +62,7 @@ export default class Main extends Component {
                     })
                 })
         }
-    }
+    };
 
     createChoices = () => {
         let newData = [];
@@ -78,7 +76,7 @@ export default class Main extends Component {
         this.setState({
             data: newData
         })
-    }
+    };
 
     massageQuestion = () => {
         let newData = [];
@@ -94,7 +92,7 @@ export default class Main extends Component {
         this.setState({
             data: newData
         })
-    }
+    };
 
     chosenAnswer = (e) => {
         let newData = this.state.data;
@@ -103,7 +101,7 @@ export default class Main extends Component {
         this.setState({
             data: newData
         })
-    }
+    };
 
     submitQuiz = () => {
         let newScore = 0;
@@ -117,7 +115,7 @@ export default class Main extends Component {
             showResult: true,
             disabledChoices: true
         })
-    }
+    };
 
     render() {
         const { data, activeStep, showResult, score, disabledChoices } = this.state;
@@ -200,5 +198,4 @@ export default class Main extends Component {
             </div >
         )
     }
-
 }

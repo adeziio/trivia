@@ -133,6 +133,7 @@ export default class Home extends Component {
     chosenAnswer = (e) => {
         let newData = this.state.data;
         newData[this.state.activeStep].chosenAnswer = e.target.value;
+        newData[this.state.activeStep].isCorrect = e.target.value === newData[this.state.activeStep].correct_answer ? true : false;
         this.setState({
             data: newData
         })
@@ -241,9 +242,7 @@ export default class Home extends Component {
                                     <div><div className="same-line bold"> Difficulty Level: </div><div className="same-line italicized">{data[activeStep].difficulty}</div></div>
                                     <div><div className="same-line bold">Type: </div><div className="same-line italicized">{data[activeStep].type}</div></div>
                                 </div>
-
                                 <div className="quiz-content">
-
                                     <FormLabel color="info" focused>
                                         <div className="quiz-question">
                                             {data[activeStep].question}
@@ -266,6 +265,7 @@ export default class Home extends Component {
                                             ) : null
                                         }
                                     </RadioGroup>
+                                    {disabledChoices && !data[activeStep].isCorrect ? <div className="italicized error">{`Correct Answer: ${data[activeStep].correct_answer}`}</div> : null}
                                 </div>
                             </Box>
                             <MobileStepper

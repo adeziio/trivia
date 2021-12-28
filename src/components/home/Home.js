@@ -122,6 +122,7 @@ export default class Home extends Component {
             let newQuestion = item.question.replaceAll("&quot;", "\"");
             newQuestion = newQuestion.replaceAll("&#039;", "'");
             newQuestion = newQuestion.replaceAll("&eacute;", "é");
+            newQuestion = newQuestion.replaceAll("&rsquo;", "'");
             item.question = newQuestion;
             newData.push(item);
         })

@@ -32,7 +32,8 @@ export default class Home extends Component {
             data: [],
             activeStep: 0,
             score: 0,
-            showResult: false
+            showResult: false,
+            disabledChoices: false
         }
     }
 
@@ -41,7 +42,8 @@ export default class Home extends Component {
             data: [],
             activeStep: 0,
             score: 0,
-            showResult: false
+            showResult: false,
+            disabledChoices: false
         })
     }
 
@@ -91,7 +93,7 @@ export default class Home extends Component {
                 .then(response => response.json())
                 .then(resData => {
                     this.setState({
-                        data: resData.results
+                        data: resData.results,
                     }, () => {
                         this.createChoices();
                         this.massageQuestion();
@@ -145,12 +147,13 @@ export default class Home extends Component {
         })
         this.setState({
             score: newScore,
-            showResult: true
+            showResult: true,
+            disabledChoices: true
         })
     }
 
     render() {
-        const { numberOfQuestions, category, difficulty, type, data, activeStep, showResult, score } = this.state;
+        const { numberOfQuestions, category, difficulty, type, data, activeStep, showResult, score, disabledChoices } = this.state;
         const maxSteps = data.length;
         console.log(this.state.data)
 
@@ -253,7 +256,13 @@ export default class Home extends Component {
                                     >
                                         {data[activeStep].choices ?
                                             data[activeStep].choices.map((choice) =>
-                                                <FormControlLabel value={choice} control={<Radio />} label={choice} checked={data[activeStep].chosenAnswer === choice ? true : false} />
+                                                <FormControlLabel
+                                                    value={choice}
+                                                    control={<Radio />}
+                                                    label={choice}
+                                                    checked={data[activeStep].chosenAnswer === choice ? true : false}
+                                                    disabled={disabledChoices}
+                                                />
                                             ) : null
                                         }
                                     </RadioGroup>
@@ -282,9 +291,9 @@ export default class Home extends Component {
 
                         {
                             showResult ? <div className="quiz-card">
-                                <Box sx={{ width: 200, height: 200, flexGrow: 1 }}>
+                                <Box sx={{ width: 200, height: 50, flexGrow: 1 }}>
                                     <div className="quiz-header">
-                                        <div><div className="same-line bold">Your Results: </div><div className="same-line italicized">{`${score} / ${maxSteps}`}</div></div>
+                                        <div><div className="same-line bold">Your Score: </div><div className="same-line italicized">{`${(score / maxSteps) * 100}%`}</div></div>
                                     </div>
                                 </Box>
                             </div> : null

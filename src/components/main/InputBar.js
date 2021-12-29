@@ -57,7 +57,7 @@ export default class InputBar extends Component {
                 <Box
                     component="form"
                     sx={{
-                        '& > :not(style)': { m: 1, width: '25ch' },
+                        '& > :not(style)': { m: 2, width: '25ch' },
                     }}
                     noValidate
                     autoComplete="off"
@@ -118,7 +118,7 @@ export default class InputBar extends Component {
                         </Select>
                     </FormControl>
                     <FormControl fullWidth>
-                        <Button variant="contained" onClick={this.generateNewQuiz}>Generate Quiz</Button>
+                        <Button className="generate-quiz-bttn" variant="contained" onClick={this.generateNewQuiz}>Generate Quiz</Button>
                         {numberOfQuestions === '' ? <p className="error-msg">Missing Required Field</p> :
                             isNaN(this.state.numberOfQuestions) ? <p className="error-msg">Invalid Input</p> : null}
                     </FormControl>

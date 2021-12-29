@@ -18,6 +18,10 @@ var BadChar = [
     {
         entity: "&amp;",
         char: "&"
+    },
+    {
+        entity: "&ldquo;",
+        char: "“"
     }
 ]
 

@@ -13,7 +13,7 @@
 
 .title {
     color: black;
-    font-size: 50px;
+    font-size: 32px;
     width: 75%;
     max-width: 45%;
     font-family: 'Indie Flower';
@@ -33,6 +33,7 @@
     background-color: white;
     margin: 1rem;
     border-radius: 50px;
+    border: 5px solid black;
 }
 
 .error-msg {
@@ -98,4 +99,8 @@
     width: 100%;
     height: auto;
     margin-bottom: 1rem;
+}
+
+.generate-quiz-bttn {
+    height: 55px;
 }

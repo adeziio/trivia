@@ -10,7 +10,7 @@ var DifficultyOptions = [
     {
         name: "Hard",
         value: "hard"
-    },
+    }
 ]
 
 export default DifficultyOptions;

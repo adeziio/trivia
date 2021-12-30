@@ -81,7 +81,7 @@ export default class InputBar extends Component {
                             showResult ? <div className="quiz-card">
                                 <Box sx={{ width: 200, height: 50, flexGrow: 1 }}>
                                     <div className="quiz-header">
-                                        <div><div className="same-line bold">Your Score: </div><div className="same-line">{`${(score / maxSteps) * 100}%`}</div></div>
+                                        <div><div className="same-line bold">Your Score: </div><div className="same-line">{`${(score / maxSteps) * 100}% (${score}/${maxSteps})`}</div></div>
                                     </div>
                                 </Box>
                             </div> : null

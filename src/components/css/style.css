@@ -96,6 +96,7 @@
     clear:both;
     text-align: left;
     padding: 1rem;
+    width: 100%;
 }
 
 .quiz-question {

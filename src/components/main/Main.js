@@ -99,7 +99,7 @@ export default class Main extends Component {
         return (
             <div className="main-container">
                 <div className="title-container">
-                    <div className="title">Trivia Quiz</div>
+                    <div className="title" onClick={() => window.location.reload()}>Trivia Quiz</div>
                 </div>
                 <InputBar generateNewQuiz={this.generateNewQuiz} />
                 <QuizContent data={data} setData={this.setData} />

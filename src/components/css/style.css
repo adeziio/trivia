@@ -29,6 +29,10 @@
     background-color: white;
 }
 
+.title:hover {
+    cursor: pointer;
+}
+
 .input-container {
     background-color: white;
     margin: 1rem;

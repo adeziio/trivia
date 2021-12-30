@@ -13,7 +13,7 @@
 
 .title {
     color: black;
-    font-size: 32px;
+    font-size: 35px;
     width: 75%;
     max-width: 45%;
     font-family: 'Indie Flower';
@@ -107,4 +107,9 @@
 
 .generate-quiz-bttn {
     height: 55px;
+}
+
+.loading {
+    border: 5px solid white;
+    border-radius: 50px;
 }

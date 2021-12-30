@@ -3,12 +3,14 @@ import './../css/style.css';
 import InputBar from './InputBar';
 import QuizContent from './QuizContent';
 import SpecialCharList from '../data/SpecialCharList';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
+            isLoading: false
         }
     };
 
@@ -24,8 +26,15 @@ export default class Main extends Component {
         })
     }
 
+    setIsloading = (bool) => {
+        this.setState({
+            isLoading: bool
+        })
+    }
+
     generateNewQuiz = (numberOfQuestions, category, difficulty, type) => {
         this.resetData();
+        this.setIsloading(true);
         if (numberOfQuestions !== '' && !isNaN(numberOfQuestions)) {
             let url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${category}&difficulty=${difficulty}&type=${type}`;
             fetch(url, {
@@ -39,6 +48,7 @@ export default class Main extends Component {
                         this.createChoices();
                         this.massageQuestion();
                         this.massageChoices();
+                        this.setIsloading(false);
                     })
                 })
         }
@@ -94,7 +104,7 @@ export default class Main extends Component {
     }
 
     render() {
-        const { data } = this.state;
+        const { data, isLoading } = this.state;
 
         return (
             <div className="main-container">
@@ -102,7 +112,7 @@ export default class Main extends Component {
                     <div className="title" onClick={() => window.location.reload()}>Trivia Quiz</div>
                 </div>
                 <InputBar generateNewQuiz={this.generateNewQuiz} />
-                <QuizContent data={data} setData={this.setData} />
+                {isLoading ? <CircularProgress className="loading" /> : <QuizContent data={data} setData={this.setData} />}
             </div >
         )
     }

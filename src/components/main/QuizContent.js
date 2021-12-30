@@ -81,7 +81,7 @@ export default class InputBar extends Component {
                             showResult ? <div className="quiz-card">
                                 <Box sx={{ width: 200, height: 50, flexGrow: 1 }}>
                                     <div className="quiz-header">
-                                        <div><div className="same-line bold">Your Score: </div><div className="same-line italicized">{`${(score / maxSteps) * 100}%`}</div></div>
+                                        <div><div className="same-line bold">Your Score: </div><div className="same-line">{`${(score / maxSteps) * 100}%`}</div></div>
                                     </div>
                                 </Box>
                             </div> : null
@@ -126,19 +126,19 @@ export default class InputBar extends Component {
                                 position="static"
                                 activeStep={activeStep}
                                 nextButton={
-                                    <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
+                                    <Button size="large" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
                                         Next
                                         <KeyboardArrowRight />
                                     </Button>
                                 }
                                 backButton={
-                                    <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
+                                    <Button size="large" onClick={this.handleBack} disabled={activeStep === 0}>
                                         <KeyboardArrowLeft />
                                         Back
                                     </Button>
                                 }
                             />
-                            <Button variant="contained" onClick={this.submitQuiz}> Submit </Button>
+                            <Button size="large" variant="contained" onClick={this.submitQuiz}> Submit </Button>
                         </div>
                     </div > : null
                 }

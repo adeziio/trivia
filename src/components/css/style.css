@@ -100,7 +100,6 @@
 
 .quiz-question {
     display: inline-block;
-    max-width: 400px;
     width: 100%;
     height: auto;
     margin-bottom: 1rem;

@@ -77,6 +77,15 @@ export default class InputBar extends Component {
             <>
                 {data.length > 0 ?
                     <div className="quiz-container">
+                        {
+                            showResult ? <div className="quiz-card">
+                                <Box sx={{ width: 200, height: 50, flexGrow: 1 }}>
+                                    <div className="quiz-header">
+                                        <div><div className="same-line bold">Your Score: </div><div className="same-line italicized">{`${(score / maxSteps) * 100}%`}</div></div>
+                                    </div>
+                                </Box>
+                            </div> : null
+                        }
                         <div className="quiz-card">
                             <Box sx={{ width: "100%", height: 400, flexGrow: 1 }}>
                                 <div className="quiz-header">
@@ -131,17 +140,6 @@ export default class InputBar extends Component {
                             />
                             <Button variant="contained" onClick={this.submitQuiz}> Submit </Button>
                         </div>
-
-                        {
-                            showResult ? <div className="quiz-card">
-                                <Box sx={{ width: 200, height: 50, flexGrow: 1 }}>
-                                    <div className="quiz-header">
-                                        <div><div className="same-line bold">Your Score: </div><div className="same-line italicized">{`${(score / maxSteps) * 100}%`}</div></div>
-                                    </div>
-                                </Box>
-                            </div> : null
-                        }
-
                     </div > : null
                 }
             </>
